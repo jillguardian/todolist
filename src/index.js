@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {todoComponentFrom} from './Todo';
+import faker from 'faker';
+
+const todos = [];
+for (let i = 0; i < 5; i++) {
+    todos[i] = {
+        id: i,
+        title: faker.lorem.sentence(),
+        content: faker.lorem.paragraph()
+    };
+}
+
+
+const App = () => {
+    return (
+        <div className="ui text container">
+            <div className="ui container">
+                <div className="ui three column stackable grid">
+                    {todos.map(todo => todoComponentFrom(todo))}
+                </div>
+            </div>
+        </div>
+    );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <App/>,
+    document.getElementById("root")
+)
