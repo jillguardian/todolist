@@ -14,7 +14,7 @@ const Todo = (props) => {
 export function todoComponentFrom(todo) {
     return (
         <div key={todo.id} className="column">
-            <ApprovableCard>
+            <ApprovableCard label="Mark as done">
                 <Todo title={todo.title} content={todo.content} />
             </ApprovableCard>
         </div>

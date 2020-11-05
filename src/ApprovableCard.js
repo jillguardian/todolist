@@ -5,7 +5,7 @@ const ApprovableCard = (props) => {
         <div className="ui card">
             {props.children}
             <div className="ui bottom green attached button">
-                <i className="icon check"/> Mark as done
+                {props.label}
             </div>
         </div>
     );
